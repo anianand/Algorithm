@@ -1,5 +1,3 @@
-// C implementation of search and insert operations
-// on Trie
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
