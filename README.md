@@ -1,2 +1,2 @@
 # Algorithm
-Codes related to some popular algorithms
+Codes related to some popular and standard algorithms
