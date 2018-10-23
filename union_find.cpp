@@ -17,14 +17,10 @@ bool cmp(edge a,edge b){
 	return a.weight<b.weight;
 }
 int find(int parent[], int i){
-    if (parent[i] == -1)
-        return i;
-    return find(parent, parent[i]);
+    return ((parent[i] == i)?i: parent[i]=find(parent, parent[i]));
 }
 void Union(int parent[], int x, int y){
-    int xset = find(parent, x);
-    int yset = find(parent, y);
-    parent[xset] = yset;
+    parent[find(parent, x)] = find(parent, y);
 }
 int main(){
 	io
@@ -32,7 +28,7 @@ int main(){
 	cin>>n>>m;
 	vector<edge>arr(m);
 	int parent[n];
-	rep(i,n) parent[i]=-1;
+	rep(i,n) parent[i]=i;
 	rep(i,m){
 		cin>>arr[i].src>>arr[i].dest>>arr[i].weight;
 		arr[i].src--;
