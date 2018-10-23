@@ -10,8 +10,8 @@
 #define io ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
 typedef long long ll;
 using namespace std;
-int siz[100005];
-int parent[100005];
+int siz[10005];
+int parent[10005];
 int find(int a){
     while(a!=parent[a])a=parent[a];
     return a;
