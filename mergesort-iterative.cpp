@@ -1,15 +1,12 @@
 #include<stdlib.h>
 #include<stdio.h>
  
-void merge(int arr[], int first, int mid, int last)
-{
+void merge(int arr[], int first, int mid, int last) {
     int i, j, k;
     int m = mid - first + 1;
     int n =  last - mid;
  
-
     int arr1[m], arr2[n];
- 
     
     for (i = 0; i < m; i++)
         arr1[i] = arr[first + i];
@@ -18,49 +15,44 @@ void merge(int arr[], int first, int mid, int last)
  
     
     i = 0,j = 0,k = first;
-    while (i < m && j < n){
-        if (arr1[i] <= arr2[j]){
+    while (i < m && j < n) {
+        if (arr1[i] <= arr2[j]) {
             arr[k] = arr1[i];
-            i++;}
-        else{
+            i++;
+	    }
+        else {
             arr[k] = arr2[j];
             j++;
-        }k++;
+        }
+	    k++;
     }
-	while (i < m){
+    while (i < m){
         arr[k] = arr1[i];
         i++;
-        k++;}
- 	while (j < n) {
+        k++;
+    }
+    while (j < n) {
         arr[k] = arr2[j];
         j++;
-        k++;}
+        k++;
+    }
 }
  
-
- void mergesort(int arr[], int n)
-{ 
+void mergesort(int arr[], int n) { 
    int merging_size; 
    int index_left;
- 	int index_right_end;
+   int index_right_end;
    
-   for (merging_size=1; merging_size<=n-1; merging_size = 2*merging_size)
-   {
+   for (merging_size=1; merging_size<=n-1; merging_size = 2*merging_size) {
        
-       for (index_left=0; index_left<n-1; index_left += 2*merging_size)
-       {
+       for (index_left=0; index_left<n-1; index_left += 2*merging_size) {
 
-           int mid = index_left + merging_size - 1;
- 			
- 			if(index_left + 2*merging_size - 1>=n-1){
- 				index_right_end = n-1;
-			 }
-			 else{
-			 	index_right_end = index_left + 2*merging_size - 1;
-			 }
+           int mid = index_left + merging_size - 1;		
+           if(index_left + 2*merging_size - 1>=n-1)
+               index_right_end = n-1;
+	   else
+	       index_right_end = index_left + 2*merging_size - 1;
            
- 
-
            merge(arr, index_left, mid, index_right_end);
        }
    }
@@ -68,17 +60,16 @@ void merge(int arr[], int first, int mid, int last)
  
 
 
-int main()
-{
-	int i,n,arr[1000];
+int main() {
+    int i,n,arr[1000];
     printf("Enter size of array: ");
     scanf("%d", &n);
     for(i=0; i<n; i++){
     	scanf("%d", &arr[i]);
-	}
+    }
  
     printf("Given array is \n");
-     for (i=0; i < n; i++)
+    for (i=0; i < n; i++)
         printf("%d ", arr[i]);
  
     mergesort(arr, n);
