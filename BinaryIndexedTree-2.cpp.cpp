@@ -1,7 +1,9 @@
 #include<bits/stdc++.h>
 using namespace std;
-//Range updates and Point Queries
-//1-based indexing everywhere
+/**
+Range updates and Point Queries
+1-based indexing everywhere
+**/
 long long  getSum(int BITree[], int n, int index)
 {
     long long  sum = 0;
